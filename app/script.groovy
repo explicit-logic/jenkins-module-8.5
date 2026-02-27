@@ -41,7 +41,7 @@ def commitVersion() {
     sh "git config --list"
     sh "git remote set-url origin https://${USERNAME}:${PASSWORD}@github.com/explicit-logic/jenkins-module-8.5"
     sh 'git add .'
-    sh 'git commit -m "ci: version bump"'
+    sh "git commit -m 'ci: version ${VERSION}'"
     sh 'git push origin HEAD:jenkins-jobs'
   }
 }
