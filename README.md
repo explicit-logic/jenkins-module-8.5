@@ -51,7 +51,33 @@ See `app/script.groovy` for implementation of the folowing steps:
 
 A multibranch pipeline automatically discovers branches and pull requests, creating a pipeline job for each.
 
-#### 4a. Create the Multibranch Pipeline Job
+### Create credentials
+
+1. Navigate to `Manage Jenkins` -> Credentials
+
+2. Add Credentials
+
+Kind: `Username with password`
+
+ID: `github`
+
+Username: `<your github username (not email)>`
+
+Password: `<your github personal token, starts with: ghp_>`
+
+- Create a GitHub Personal Access Token
+
+1. Navigate to https://github.com/settings/tokens/new
+2. Set the **Note** to `jenkins`
+3. Select the following scopes:
+
+| Scope | Reason |
+|---|---|
+| `admin:repo_hook` | Create, read, and delete webhooks |
+| `public_repo` | Access public repositories |
+| `repo:status` | Update commit statuses |
+
+#### Create the Multibranch Pipeline Job
 
 1. Go to **Dashboard** → **New Item**
 2. Name it `multibranch`, select **Multibranch Pipeline**, click **OK**
